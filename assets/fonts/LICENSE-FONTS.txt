@@ -1,0 +1,8 @@
+Fonts bundled with this site are licensed under the SIL Open Font License, Version 1.1
+(https://openfontlicense.org).
+
+Manrope  - Copyright 2019 The Manrope Project Authors (https://github.com/sharanda/manrope)
+DM Mono  - Copyright 2020 The DM Mono Project Authors (https://www.github.com/googlefonts/dm-mono)
+
+Latin-subset WOFF2 files were obtained from the Fontsource packages
+(@fontsource-variable/manrope, @fontsource/dm-mono).
