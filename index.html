@@ -4,83 +4,120 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#101918">
-  <meta name="description" content="Rabindranath Mahato — Linux System Administrator focused on cloud and infrastructure operations.">
+  <meta name="description" content="Rabindranath Mahato is a Linux System Administrator focused on cloud infrastructure, automation, and reliable production operations.">
   <meta name="author" content="Rabindranath Mahato">
   <link rel="canonical" href="https://rabimahato38.github.io/">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Rabindranath Mahato | Linux & Cloud Operations">
+  <meta property="og:title" content="Rabindranath Mahato | Linux &amp; Cloud Operations">
   <meta property="og:description" content="Linux systems, cloud operations, and infrastructure reliability.">
   <meta property="og:url" content="https://rabimahato38.github.io/">
   <meta name="twitter:card" content="summary">
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Rabindranath Mahato","jobTitle":"Linux System Administrator","address":{"@type":"PostalAddress","addressLocality":"Guwahati","addressRegion":"Assam","addressCountry":"IN"},"sameAs":["https://www.linkedin.com/in/Rabindranath-Mahato","https://github.com/rabimahato38"]}</script>
-  <title>Rabindranath Mahato | Linux & Cloud Operations</title>
+  <title>Rabindranath Mahato | Linux &amp; Cloud Operations</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <script>
+    let savedTheme = null;
+    try { savedTheme = localStorage.getItem('portfolio-theme'); }
+    catch { /* Use the system preference when browser storage is unavailable. */ }
+    const systemPrefersLight = window.matchMedia?.('(prefers-color-scheme: light)').matches ?? false;
+    if (savedTheme === 'light' || (!savedTheme && systemPrefersLight)) document.documentElement.classList.add('light');
+  </script>
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
   <header class="topbar">
-    <a class="wordmark" href="#home" aria-label="Rabindranath Mahato home"><span class="mark">rm</span><span>RABINDRANATH<br><small>MAHATO</small></span></a>
-    <button class="menu-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Open navigation"><span></span><span></span></button>
+    <a class="wordmark" href="#home" aria-label="Rabindranath Mahato home">
+      <span class="mark" aria-hidden="true">rm</span><span>RABINDRANATH<br><small>MAHATO</small></span>
+    </a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav" aria-label="Open navigation"><span></span><span></span></button>
     <nav id="main-nav" aria-label="Main navigation">
       <a href="#about">About</a><a href="#expertise">Expertise</a><a href="#projects">Selected work</a><a href="#experience">Experience</a><a href="#credentials">Credentials</a>
     </nav>
-    <div class="header-actions"><button class="theme-toggle" aria-label="Switch to light theme" title="Toggle color theme">◐</button><a class="contact-button" href="https://www.linkedin.com/in/Rabindranath-Mahato" target="_blank" rel="noreferrer">Let’s connect <span>↗</span></a></div>
+    <div class="header-actions">
+      <button class="theme-toggle" type="button" aria-label="Switch to light theme" title="Toggle color theme">◐</button>
+      <a class="contact-button" href="https://www.linkedin.com/in/Rabindranath-Mahato" target="_blank" rel="noopener noreferrer">Let’s connect <span aria-hidden="true">↗</span></a>
+    </div>
   </header>
 
-  <main>
-    <section class="hero" id="home">
+  <main id="main-content" tabindex="-1">
+    <section class="hero" id="home" aria-labelledby="hero-title">
       <div class="hero-copy">
-        <div class="eyebrow"><span class="pulse"></span> LINUX · CLOUD · INFRASTRUCTURE</div>
-        <h1>Keeping critical<br>systems <em>steady.</em></h1>
-        <p class="lead">I’m Rabindranath Mahato, a Linux System Administrator focused on dependable infrastructure, thoughtful automation, and production operations.</p>
-        <div class="hero-actions"><a class="primary" href="#experience">Explore my work <span>↓</span></a><a class="text-link" href="https://github.com/rabimahato38" target="_blank" rel="noreferrer">GitHub <span>↗</span></a></div>
-        <div class="location"><span>⌖</span> GUWAHATI, ASSAM, INDIA</div>
+        <p class="eyebrow"><span class="pulse" aria-hidden="true"></span> LINUX · CLOUD · INFRASTRUCTURE</p>
+        <h1 id="hero-title">Linux System<br>Administrator</h1>
+        <p class="hero-tagline">Keeping critical systems <em>steady.</em></p>
+        <p class="lead">I’m Rabindranath Mahato, focused on dependable infrastructure, thoughtful automation, and production operations.</p>
+        <div class="hero-actions"><a class="primary" href="#projects">Explore selected work <span aria-hidden="true">↓</span></a><a class="text-link" href="https://github.com/rabimahato38" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a></div>
+        <p class="location"><span aria-hidden="true">⌖</span> GUWAHATI, ASSAM, INDIA</p>
       </div>
-      <div class="hero-art" aria-label="Illustration of a server infrastructure dashboard">
-        <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
-        <div class="terminal">
+      <div class="hero-art" role="img" aria-label="Illustrative operations dashboard; figures are decorative, not live system telemetry">
+        <div class="terminal" aria-hidden="true">
           <div class="terminal-head"><span class="dots"><i></i><i></i><i></i></span><span>ops@production: ~</span><span class="terminal-status">● ONLINE</span></div>
           <div class="terminal-body"><p><b>$</b> uptime</p><p class="muted">09:41:08 up 187 days, 04:22</p><p><b>$</b> systemctl status services</p><div class="service"><span class="ok">●</span> api-gateway.service <small>active</small></div><div class="service"><span class="ok">●</span> postgres.service <small>active</small></div><div class="service"><span class="ok">●</span> nginx.service <small>active</small></div><div class="service"><span class="ok">●</span> zabbix-agent.service <small>active</small></div><p class="prompt"><b>$</b> <span class="cursor">_</span></p></div>
         </div>
-        <div class="metric-card"><span class="metric-label">SERVICE AVAILABILITY</span><strong>99.9<span>%</span></strong><span class="metric-foot"><i>↗</i> mission-critical platforms</span><div class="sparkline"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div></div>
-        <div class="floating-tag">OCI <b>×</b> 80+ SERVERS</div>
+        <p class="illustration-note">ILLUSTRATIVE DASHBOARD · NOT LIVE TELEMETRY</p>
       </div>
-      <div class="hero-bottom"><span>OPERATIONS WITH INTENTION</span><span>SCROLL TO EXPLORE ↓</span></div>
+      <div class="hero-bottom" aria-hidden="true"><span>OPERATIONS WITH INTENTION</span><span>SCROLL TO EXPLORE ↓</span></div>
     </section>
 
-    <section class="stats" aria-label="Career highlights"><a href="#experience"><strong>4<span>+</span></strong><small>YEARS IN LINUX OPS</small></a><a href="#experience"><strong>80<span>+</span></strong><small>CLOUD SERVERS SUPPORTED</small></a><a href="#experience"><strong>99.9<span>%</span></strong><small>SERVICE AVAILABILITY</small></a><a href="#experience"><strong>40<span>%</span></strong><small>LESS ROUTINE MANUAL WORK</small></a></section>
-
-    <section class="section about" id="about"><div class="section-label"><span>01 / ABOUT</span><span class="line"></span></div><div class="about-content"><h2>Reliable infrastructure<br>starts with <em>good operations.</em></h2><div class="about-text"><p>Production-oriented Linux System Administrator with 4+ years of experience supporting enterprise infrastructure across on-premise and cloud environments. I work across incident response, root cause analysis, observability, automation, and database operations.</p><p>Currently supporting Oracle Cloud Infrastructure for citizen-facing services, with a focus on uptime, faster incident resolution, and repeatable operational workflows.</p><a class="arrow-link" href="https://www.linkedin.com/in/Rabindranath-Mahato" target="_blank" rel="noreferrer">Connect on LinkedIn <span>↗</span></a></div></div></section>
-
-    <section class="section expertise" id="expertise"><div class="section-label"><span>02 / EXPERTISE</span><span class="line"></span></div><div class="expertise-head"><h2>Tools I work<br><em>with every day.</em></h2><p>A practical toolkit for keeping systems healthy, observable, secure, and ready to scale.</p></div><div class="skill-grid">
-      <article><span class="skill-num">01</span><h3>Linux systems</h3><p>RHEL 7/8/9 · Ubuntu · CentOS · Rocky Linux</p><div class="chips"><span>Systemd</span><span>LVM</span><span>Storage</span><span>Hardening</span></div></article>
-      <article><span class="skill-num">02</span><h3>Cloud & virtualization</h3><p>Oracle Cloud Infrastructure operations</p><div class="chips"><span>OCI Compute</span><span>VCN</span><span>Storage</span><span>Security Lists</span></div></article>
-      <article><span class="skill-num">03</span><h3>Monitoring & response</h3><p>Observability, troubleshooting, and RCA</p><div class="chips"><span>Zabbix</span><span>SAR</span><span>VMSTAT</span><span>IOSTAT</span></div></article>
-      <article><span class="skill-num">04</span><h3>Automation & data</h3><p>Repeatable maintenance and recovery workflows</p><div class="chips"><span>Bash</span><span>PostgreSQL</span><span>MySQL</span><span>Git</span></div></article>
-      <article><span class="skill-num">05</span><h3>Containers & web</h3><p>Application runtime and web server operations</p><div class="chips"><span>Docker</span><span>Compose</span><span>Nginx</span><span>Apache</span></div></article>
-      <article><span class="skill-num">06</span><h3>Networking & services</h3><p>Core Linux network services and controls</p><div class="chips"><span>DNS / DHCP</span><span>NFS / Samba</span><span>Firewalld</span><span>Routing</span></div></article>
-    </div><a class="section-cta" href="#experience">See these skills in my experience <span>↓</span></a></section>
-
-    <section class="section projects" id="projects"><div class="section-label"><span>03 / SELECTED WORK</span><span class="line"></span></div><div class="projects-head"><h2>Practical work.<br><em>Measurable outcomes.</em></h2><p>Highlights drawn from my production operations experience. These are work initiatives, not standalone products.</p></div><div class="project-grid">
-      <article class="project-card"><div class="project-top"><span>01 / OBSERVABILITY</span><span class="project-icon">⌁</span></div><h3>Proactive monitoring for an 80+ server fleet</h3><p>Implemented Zabbix active checks, custom parameters, and alert triggers across OCI Linux endpoints supporting citizen-facing services.</p><div class="project-result"><strong>35%</strong><span>MTTR reduction reported</span></div><div class="chips"><span>Zabbix</span><span>OCI</span><span>Linux</span></div><a href="#experience" class="project-link">Role context <span>↓</span></a></article>
-      <article class="project-card"><div class="project-top"><span>02 / AUTOMATION</span><span class="project-icon">{ }</span></div><h3>Repeatable database and system routines</h3><p>Built reusable Bash workflows for recurring PostgreSQL tasks, log rotation, and system health verification to reduce routine manual administration.</p><div class="project-result"><strong>40%</strong><span>less routine manual workload</span></div><div class="chips"><span>Bash</span><span>PostgreSQL</span><span>Cron</span></div><a href="#experience" class="project-link">Role context <span>↓</span></a></article>
-      <article class="project-card"><div class="project-top"><span>03 / RESILIENCE</span><span class="project-icon">⟳</span></div><h3>Verified database backup and recovery</h3><p>Standardized PostgreSQL backup workflows and restoration drills, strengthening recovery readiness and business continuity.</p><div class="project-result"><strong>100%</strong><span>backup verification success</span></div><div class="chips"><span>PostgreSQL</span><span>Backup</span><span>Recovery</span></div><a href="#experience" class="project-link">Role context <span>↓</span></a></article>
-      <article class="project-card"><div class="project-top"><span>04 / FLEET OPERATIONS</span><span class="project-icon">⌘</span></div><h3>Stable Linux operations at production scale</h3><p>Supported Linux production and staging systems through patching, kernel updates, performance troubleshooting, storage administration, and network services.</p><div class="project-result"><strong>50+</strong><span>virtual instances patched without unplanned disruption</span></div><div class="chips"><span>RHEL</span><span>Ubuntu</span><span>LVM</span><span>Networking</span></div><a href="#experience" class="project-link">Role context <span>↓</span></a></article>
-    </div></section>
-
-    <section class="section experience" id="experience"><div class="section-label"><span>04 / EXPERIENCE</span><span class="line"></span></div><div class="experience-head"><h2>Operations that<br><em>make a difference.</em></h2><p>Hands-on ownership of production systems, service health, and reliable delivery.</p></div>
-      <article class="job"><div class="job-meta"><span>APR 2026 — PRESENT</span><span>GUWAHATI, ASSAM</span></div><div class="job-body"><div class="job-title"><h3>Linux System Administrator L1</h3><span>01</span></div><h4>Innoworq Infotech Private Limited</h4><p>Administer and monitor 80+ OCI Linux servers supporting Assam State citizen and land-management services, sustaining 99.9% availability.</p><ul><li>Built Zabbix active checks, custom parameters, and alert triggers across 80+ endpoints, reducing MTTR by 35%.</li><li>Automated recurring PostgreSQL tasks, log rotations, and health checks; reduced routine manual workload by 40%.</li><li>Standardized database backups and restoration drills with 100% backup verification success.</li></ul><div class="chips"><span>OCI</span><span>RHEL</span><span>Zabbix</span><span>Bash</span><span>PostgreSQL</span><span>Docker</span></div></div></article>
-      <article class="job"><div class="job-meta"><span>SEP 2022 — APR 2026</span><span>JAMSHEDPUR, JHARKHAND</span></div><div class="job-body"><div class="job-title"><h3>Linux Administrator L1</h3><span>02</span></div><h4>Aspire Softech Solutions Private Limited</h4><p>Managed Linux production and staging environments across 30+ servers, supporting stable operations, security, and service delivery.</p><ul><li>Handled patching and kernel updates across 50+ virtual instances with zero unplanned service disruptions.</li><li>Resolved 250+ performance bottlenecks using system profiling tools; maintained storage and core network services.</li><li>Maintained Nginx, HTTPD, and PostgreSQL; reduced ticket turnaround by 25%.</li></ul><div class="chips"><span>Linux</span><span>LVM</span><span>Networking</span><span>Nginx</span><span>PostgreSQL</span><span>Firewalld</span></div></div></article>
+    <section class="stats" aria-label="Career highlights">
+      <a href="#experience"><strong>4<span>+</span></strong><small>YEARS IN LINUX OPS</small></a>
+      <a href="#experience"><strong>80<span>+</span></strong><small>CLOUD SERVERS SUPPORTED</small></a>
+      <a href="#experience"><strong>99.9<span>%</span></strong><small>SERVICE AVAILABILITY</small></a>
+      <a href="#experience"><strong>40<span>%</span></strong><small>LESS ROUTINE MANUAL WORK</small></a>
     </section>
 
-    <section class="credentials" id="credentials"><div class="credential-glow"></div><div class="section-label"><span>05 / CREDENTIALS</span><span class="line"></span></div><div class="credential-content"><div><p class="eyebrow">CERTIFIED IN LINUX ADMINISTRATION</p><h2>Red Hat Certified<br><em>System Administrator.</em></h2><p>RHCSA · Red Hat Enterprise Linux<br>Certification ID: 250-043-163 · Active / Verified</p></div><div class="credential-seal"><span>RED HAT</span><strong>RHCSA</strong><small>RHEL<br>CERTIFIED</small></div></div><div class="education"><span>EDUCATION</span><p>Bachelor of Arts (English) <small>Indira Gandhi National Open University · 2021</small></p><span>LANGUAGES</span><p>English <small>Professional</small> &nbsp; Hindi <small>Fluent</small> &nbsp; Bengali <small>Native</small></p></div></section>
+    <section class="section about" id="about" aria-labelledby="about-title">
+      <div class="section-label"><span>01 / ABOUT</span><span class="line" aria-hidden="true"></span></div>
+      <div class="about-content"><h2 id="about-title">Reliable infrastructure<br>starts with <em>good operations.</em></h2><div class="about-text"><p>Production-oriented Linux System Administrator with 4+ years of experience supporting enterprise infrastructure across on-premise and cloud environments. I work across incident response, root cause analysis, observability, automation, and database operations.</p><p>Currently supporting Oracle Cloud Infrastructure for citizen-facing services, with a focus on uptime, faster incident resolution, and repeatable operational workflows.</p><a class="arrow-link" href="https://www.linkedin.com/in/Rabindranath-Mahato" target="_blank" rel="noopener noreferrer">Connect on LinkedIn <span aria-hidden="true">↗</span></a></div></div>
+    </section>
 
-    <section class="contact-section"><div class="contact-inner"><p class="eyebrow"><span class="pulse"></span> OPEN TO NEW CONNECTIONS</p><h2>Let’s keep good<br>systems <em>running.</em></h2><p>Interested in Linux administration, cloud operations, and infrastructure reliability? Let’s connect.</p><a class="primary" href="https://www.linkedin.com/in/Rabindranath-Mahato" target="_blank" rel="noreferrer">Get in touch <span>↗</span></a><div class="contact-social"><a href="https://www.linkedin.com/in/Rabindranath-Mahato" target="_blank" rel="noreferrer">LinkedIn ↗</a><a href="https://github.com/rabimahato38" target="_blank" rel="noreferrer">GitHub ↗</a></div></div><div class="contact-decoration">rm<span>.</span></div></section>
+    <section class="section expertise" id="expertise" aria-labelledby="expertise-title">
+      <div class="section-label"><span>02 / EXPERTISE</span><span class="line" aria-hidden="true"></span></div>
+      <div class="expertise-head"><h2 id="expertise-title">Tools I work<br><em>with every day.</em></h2><p>A practical toolkit for keeping systems healthy, observable, secure, and ready to scale.</p></div>
+      <div class="skill-grid">
+        <article><span class="skill-num">01</span><h3>Linux systems</h3><p>RHEL 7/8/9 · Ubuntu · CentOS · Rocky Linux</p><div class="chips"><span>Systemd</span><span>LVM</span><span>Storage</span><span>Hardening</span></div></article>
+        <article><span class="skill-num">02</span><h3>Cloud &amp; virtualization</h3><p>Oracle Cloud Infrastructure operations</p><div class="chips"><span>OCI Compute</span><span>VCN</span><span>Storage</span><span>Security Lists</span></div></article>
+        <article><span class="skill-num">03</span><h3>Monitoring &amp; response</h3><p>Observability, troubleshooting, and RCA</p><div class="chips"><span>Zabbix</span><span>SAR</span><span>VMSTAT</span><span>IOSTAT</span></div></article>
+        <article><span class="skill-num">04</span><h3>Automation &amp; data</h3><p>Repeatable maintenance and recovery workflows</p><div class="chips"><span>Bash</span><span>PostgreSQL</span><span>MySQL</span><span>Git</span></div></article>
+        <article><span class="skill-num">05</span><h3>Containers &amp; web</h3><p>Application runtime and web server operations</p><div class="chips"><span>Docker</span><span>Compose</span><span>Nginx</span><span>Apache</span></div></article>
+        <article><span class="skill-num">06</span><h3>Networking &amp; services</h3><p>Core Linux network services and controls</p><div class="chips"><span>DNS / DHCP</span><span>NFS / Samba</span><span>Firewalld</span><span>Routing</span></div></article>
+      </div>
+      <a class="section-cta" href="#experience">See these skills in my experience <span aria-hidden="true">↓</span></a>
+    </section>
+
+    <section class="section projects" id="projects" aria-labelledby="projects-title">
+      <div class="section-label"><span>03 / SELECTED WORK</span><span class="line" aria-hidden="true"></span></div>
+      <div class="projects-head"><h2 id="projects-title">Practical work.<br><em>Measurable outcomes.</em></h2><p>Production operations initiatives, with the role context and related outcomes linked below.</p></div>
+      <div class="project-grid">
+        <article class="project-card"><div class="project-top"><span>01 / OBSERVABILITY</span><span class="project-icon" aria-hidden="true">⌁</span></div><h3>Proactive monitoring across OCI Linux</h3><p>Implemented Zabbix active checks, custom parameters, and alert triggers across OCI Linux endpoints supporting citizen-facing services.</p><div class="project-result"><strong>35%</strong><span>MTTR reduction reported</span></div><div class="chips"><span>Zabbix</span><span>OCI</span><span>Linux</span></div><a href="#innoworq-monitoring" class="project-link">Related experience <span aria-hidden="true">↓</span></a></article>
+        <article class="project-card"><div class="project-top"><span>02 / AUTOMATION</span><span class="project-icon" aria-hidden="true">{ }</span></div><h3>Repeatable database and system routines</h3><p>Built reusable Bash workflows for recurring PostgreSQL tasks, log rotation, and system health verification.</p><div class="project-result"><strong>40%</strong><span>less routine manual workload reported</span></div><div class="chips"><span>Bash</span><span>PostgreSQL</span><span>Cron</span></div><a href="#innoworq-automation" class="project-link">Related experience <span aria-hidden="true">↓</span></a></article>
+        <article class="project-card"><div class="project-top"><span>03 / RESILIENCE</span><span class="project-icon" aria-hidden="true">⟳</span></div><h3>Verified database backup and recovery</h3><p>Standardized PostgreSQL backup workflows and restoration drills to strengthen recovery readiness.</p><div class="project-result"><strong>100%</strong><span>backup verification success reported</span></div><div class="chips"><span>PostgreSQL</span><span>Backup</span><span>Recovery</span></div><a href="#innoworq-backups" class="project-link">Related experience <span aria-hidden="true">↓</span></a></article>
+        <article class="project-card"><div class="project-top"><span>04 / FLEET OPERATIONS</span><span class="project-icon" aria-hidden="true">⌘</span></div><h3>Stable Linux operations at production scale</h3><p>Supported Linux production and staging systems through patching, kernel updates, performance troubleshooting, storage, and network services.</p><div class="project-result"><strong>50+</strong><span>instances patched without unplanned disruption</span></div><div class="chips"><span>RHEL</span><span>Ubuntu</span><span>LVM</span><span>Networking</span></div><a href="#aspire-fleet" class="project-link">Related experience <span aria-hidden="true">↓</span></a></article>
+      </div>
+    </section>
+
+    <section class="section experience" id="experience" aria-labelledby="experience-title">
+      <div class="section-label"><span>04 / EXPERIENCE</span><span class="line" aria-hidden="true"></span></div>
+      <div class="experience-head"><h2 id="experience-title">Operations that<br><em>make a difference.</em></h2><p>Hands-on ownership of production systems, service health, and reliable delivery.</p></div>
+      <article class="job"><div class="job-meta"><span>APR 2026 — PRESENT</span><span>GUWAHATI, ASSAM</span></div><div class="job-body"><div class="job-title"><h3>Linux System Administrator L1</h3><span>01</span></div><h4>Innoworq Infotech Private Limited</h4><p>Administer and monitor 80+ OCI Linux servers supporting Assam State citizen and land-management services, sustaining 99.9% availability.</p><ul><li id="innoworq-monitoring">Built Zabbix active checks, custom parameters, and alert triggers across the fleet, reducing MTTR by 35%.</li><li id="innoworq-automation">Automated recurring PostgreSQL tasks, log rotations, and health checks; reduced routine manual workload by 40%.</li><li id="innoworq-backups">Standardized database backups and restoration drills with 100% backup verification success.</li></ul><div class="chips"><span>OCI</span><span>RHEL</span><span>Zabbix</span><span>Bash</span><span>PostgreSQL</span><span>Docker</span></div></div></article>
+      <article class="job"><div class="job-meta"><span>SEP 2022 — APR 2026</span><span>JAMSHEDPUR, JHARKHAND</span></div><div class="job-body"><div class="job-title"><h3>Linux Administrator L1</h3><span>02</span></div><h4>Aspire Softech Solutions Private Limited</h4><p>Managed Linux production and staging environments across 30+ servers, supporting stable operations, security, and service delivery.</p><ul><li id="aspire-fleet">Handled patching and kernel updates across 50+ virtual instances with zero unplanned service disruptions.</li><li>Resolved 250+ performance bottlenecks using system profiling tools; maintained storage and core network services.</li><li>Maintained Nginx, HTTPD, and PostgreSQL; reduced ticket turnaround by 25%.</li></ul><div class="chips"><span>Linux</span><span>LVM</span><span>Networking</span><span>Nginx</span><span>PostgreSQL</span><span>Firewalld</span></div></div></article>
+    </section>
+
+    <section class="credentials" id="credentials" aria-labelledby="credentials-title">
+      <div class="credential-glow" aria-hidden="true"></div><div class="section-label"><span>05 / CREDENTIALS</span><span class="line" aria-hidden="true"></span></div>
+      <div class="credential-content"><div><p class="eyebrow">CERTIFIED IN LINUX ADMINISTRATION</p><h2 id="credentials-title">Red Hat Certified<br><em>System Administrator.</em></h2><p>RHCSA · Red Hat Enterprise Linux<br>Certification ID: 250-043-163 · Active / Verified</p></div><div class="credential-seal" role="img" aria-label="Red Hat Certified System Administrator"><span>RED HAT</span><strong>RHCSA</strong><small>RHEL<br>CERTIFIED</small></div></div>
+      <div class="education"><span>EDUCATION</span><p>Bachelor of Arts (English) <small>Indira Gandhi National Open University · 2021</small></p><span>LANGUAGES</span><p>English <small>Professional</small> &nbsp; Hindi <small>Fluent</small> &nbsp; Bengali <small>Native</small></p></div>
+    </section>
+
+    <section class="contact-section" id="contact" aria-labelledby="contact-title"><div class="contact-inner"><p class="eyebrow"><span class="pulse" aria-hidden="true"></span> OPEN TO NEW CONNECTIONS</p><h2 id="contact-title">Let’s keep good<br>systems <em>running.</em></h2><p>Interested in Linux administration, cloud operations, and infrastructure reliability? Let’s connect.</p><a class="primary" href="https://www.linkedin.com/in/Rabindranath-Mahato" target="_blank" rel="noopener noreferrer">Contact me on LinkedIn <span aria-hidden="true">↗</span></a><div class="contact-social"><a href="https://www.linkedin.com/in/Rabindranath-Mahato" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a><a href="https://github.com/rabimahato38" target="_blank" rel="noopener noreferrer">GitHub ↗</a></div></div><div class="contact-decoration" aria-hidden="true">rm<span>.</span></div></section>
   </main>
+
   <a class="back-top" href="#home" aria-label="Back to top">↑</a>
-  <script src="script.js" defer></script>
-  <footer><a class="wordmark" href="#home"><span class="mark">rm</span><span>RABINDRANATH<br><small>MAHATO</small></span></a><span>BUILT WITH CARE · 2026</span><a href="#home">BACK TO TOP ↑</a></footer>
+  <footer><a class="wordmark" href="#home" aria-label="Rabindranath Mahato home"><span class="mark" aria-hidden="true">rm</span><span>RABINDRANATH<br><small>MAHATO</small></span></a><span>BUILT WITH CARE · 2026</span><a href="#home">BACK TO TOP ↑</a></footer>
 </body>
 </html>
