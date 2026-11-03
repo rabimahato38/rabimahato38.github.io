@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://rabimahato38.github.io/sitemap.xml
