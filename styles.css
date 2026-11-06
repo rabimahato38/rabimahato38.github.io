@@ -196,7 +196,7 @@ h3 { font-size: 1.125rem; line-height: 1.35; font-weight: 700; }
 .stats-list li { padding: 6px 24px; border-left: 1px solid var(--line); }
 .stats-list li:first-child { border-left: 0; padding-left: 0; }
 .stats-list strong { display: block; font: 500 clamp(1.875rem, 3.4vw, 2.5rem)/1.1 var(--mono); letter-spacing: -0.05em; }
-.stats-list strong span { color: var(--accent); font-size: 0.6em; letter-spacing: 0; }
+.stats-list strong > span:not(.count) { color: var(--accent); font-size: 0.6em; letter-spacing: 0; }
 .stat-label { display: block; margin-top: 8px; font-size: 0.75rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
 
 /* ---------- Sections ---------- */
@@ -345,15 +345,57 @@ h3 { font-size: 1.125rem; line-height: 1.35; font-weight: 700; }
   .header-actions { gap: 6px; }
 }
 
+/* ---------- UX polish ---------- */
+::selection { background: var(--accent-fill); color: var(--on-accent); }
+
+/* Scroll progress + header elevation */
+.scroll-progress { position: absolute; left: 0; bottom: -1px; height: 2px; width: 100%; background: var(--accent); transform: scaleX(var(--progress, 0)); transform-origin: 0 50%; }
+.topbar { transition: box-shadow 0.25s; }
+.topbar.scrolled { box-shadow: 0 8px 30px rgb(0 0 0 / 0.18); }
+
+/* Hero depth: soft accent glow and a faint grid, drawn in CSS only */
+.hero { position: relative; isolation: isolate; overflow: hidden; }
+.hero::before {
+  content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  background:
+    radial-gradient(60% 70% at 85% 10%, color-mix(in srgb, var(--accent) 14%, transparent), transparent 70%),
+    linear-gradient(var(--line) 1px, transparent 1px) 0 0 / 56px 56px,
+    linear-gradient(90deg, var(--line) 1px, transparent 1px) 0 0 / 56px 56px;
+  opacity: 0.55;
+  -webkit-mask-image: radial-gradient(80% 90% at 70% 20%, #000, transparent 75%);
+  mask-image: radial-gradient(80% 90% at 70% 20%, #000, transparent 75%);
+}
+.hero-actions .button { min-height: 48px; }
+.button { transition: background-color 0.2s, border-color 0.2s, color 0.2s, transform 0.2s, box-shadow 0.2s; }
+.button-primary:hover { box-shadow: 0 8px 24px color-mix(in srgb, var(--accent) 30%, transparent); transform: translateY(-1px); }
+
+/* Interactive feedback on cards and skills */
+.project-card { position: relative; }
+.project-card::before { content: ""; position: absolute; left: -1px; right: -1px; top: -1px; height: 2px; background: var(--accent); transform: scaleX(0); transform-origin: 0 50%; transition: transform 0.3s ease; }
+.project-card:hover::before, .project-card:focus-within::before { transform: scaleX(1); }
+.project-link span { transition: transform 0.2s; }
+.project-link:hover span { transform: translateY(2px); }
+.skill-grid > li { transition: background-color 0.2s; }
+.skill-grid > li:hover { background: color-mix(in srgb, var(--accent) 6%, transparent); }
+.chips li { transition: border-color 0.2s, color 0.2s; }
+.skill-grid > li:hover .chips li, .project-card:hover .chips li { border-color: color-mix(in srgb, var(--accent) 55%, var(--line-strong)); color: var(--text); }
+
+/* Current-role badge; tabular numerals keep the count-up steady */
+.badge-current { display: inline-flex; align-items: center; width: fit-content; padding: 3px 10px; border: 1px solid var(--accent); color: var(--accent); font-size: 0.6875rem; letter-spacing: 0.1em; }
+.badge-current .pulse { width: 6px; height: 6px; margin-right: 8px; }
+.stats-list strong { font-variant-numeric: tabular-nums; }
+
 /* ---------- Motion & print ---------- */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { transition-duration: 0.01ms !important; }
   .cursor { animation: none; }
+  .button-primary:hover { transform: none; }
+  .scroll-progress { display: none; }
   .reveal { opacity: 1; transform: none; }
 }
 @media print {
   :root, :root[data-theme] { --bg: #fff; --surface: #fff; --band: #fff; --terminal: #fff; --text: #000; --muted: #222; --subtle: #333; --accent: #000; --line: #bbb; --line-strong: #777; }
-  .topbar, .hero-art, .back-top, .menu-toggle, .theme-toggle { display: none !important; }
+  .topbar, .scroll-progress, .hero::before, .hero-art, .back-top, .menu-toggle, .theme-toggle { display: none !important; }
   .reveal { opacity: 1 !important; transform: none !important; }
   .section, .credentials, .contact-section { padding-block: 24px; }
   .project-card, .job { break-inside: avoid; }

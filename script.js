@@ -88,4 +88,36 @@
       .filter(el => el.getBoundingClientRect().top > window.innerHeight)
       .forEach(el => { el.classList.add('reveal'); reveal.observe(el); });
   }
+
+  /* ---------- Scroll progress + header elevation ---------- */
+  const topbar = $('.topbar');
+  const progress = $('.scroll-progress');
+  let ticking = false;
+  const onScroll = () => {
+    ticking = false;
+    const max = root.scrollHeight - window.innerHeight;
+    if (progress) progress.style.setProperty('--progress', max > 0 ? Math.min(window.scrollY / max, 1).toFixed(3) : 0);
+    topbar.classList.toggle('scrolled', window.scrollY > 8);
+  };
+  window.addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(onScroll); } }, { passive: true });
+  onScroll();
+
+  /* ---------- Stats count-up (runs once when the strip is visible) ---------- */
+  const counters = $$('.count[data-count]');
+  if (!reducedMotion && counters.length && 'IntersectionObserver' in window) {
+    const run = el => {
+      const target = Number(el.dataset.count);
+      const start = performance.now();
+      const step = now => {
+        const t = Math.min((now - start) / 900, 1);
+        el.textContent = Math.round(target * (1 - Math.pow(1 - t, 3)));
+        if (t < 1) requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+    };
+    const io = new IntersectionObserver((entries, obs) => entries.forEach(e => {
+      if (e.isIntersecting) { run(e.target); obs.unobserve(e.target); }
+    }), { threshold: 0.6 });
+    counters.forEach(el => io.observe(el));
+  }
 })();
